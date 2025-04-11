@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/AstroNova/static/css/main.eb323569.css",
-    "main.js": "/AstroNova/static/js/main.6cf627c5.js",
+    "main.css": "/AstroNova/static/css/main.6bb28548.css",
+    "main.js": "/AstroNova/static/js/main.dce3f58d.js",
     "static/media/logo.png": "/AstroNova/static/media/logo.ef29437a9c6c51f35165.png",
     "index.html": "/AstroNova/index.html",
-    "main.eb323569.css.map": "/AstroNova/static/css/main.eb323569.css.map",
-    "main.6cf627c5.js.map": "/AstroNova/static/js/main.6cf627c5.js.map"
+    "main.6bb28548.css.map": "/AstroNova/static/css/main.6bb28548.css.map",
+    "main.dce3f58d.js.map": "/AstroNova/static/js/main.dce3f58d.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb323569.css",
-    "static/js/main.6cf627c5.js"
+    "static/css/main.6bb28548.css",
+    "static/js/main.dce3f58d.js"
   ]
 }
