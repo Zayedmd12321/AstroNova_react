@@ -6,7 +6,7 @@ import SubheadData from './data/nssc_team_subhead.json'
 const Teams = () => {
   return (
     <div style={{ minHeight: '100vh', padding: '40px 0', textAlign: 'center',marginTop: '4.5rem' }}>
-      <h2 style={{ color: 'white', fontSize: '2.5rem', marginBottom: '2rem' }}>HEADS</h2>
+      <h2 style={{ color: 'white', fontSize: '2.5rem', marginBottom: '2rem', zIndex: '1' }}>HEADS</h2>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
         {SecData.map((member, index) => (
           <TeamCard
