@@ -11,6 +11,11 @@ h2 {
   font-family: 'Orbitron', sans-serif;
   position: relative;
   z-index: 1;
+  background: linear-gradient(90deg, grey, white);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 }
 
 ::-webkit-scrollbar {
@@ -86,7 +91,7 @@ header {
 
 .name {
   font-family: 'Orbitron', sans-serif;
-
+  
 }
 
 #logo img {
