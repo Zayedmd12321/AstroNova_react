@@ -1,178 +1,83 @@
 import { useState } from 'react';
-
-const scheduleData = {
-    day0: [
-        {
-            title: 'Opening Ceremony',
-            venue: 'Bhatnagar Auditorium',
-            time: '6:30PM',
-            link: '#',
-        },
-        {
-            title: 'Stargazing Session',
-            venue: 'Tata Steel Sports Complex',
-            time: '8PM',
-            link: '#',
-        },
-    ],
-    
-    day1: [
-        {
-            title: 'Case Study',
-            venue: 'Maitrayee Auditorium',
-            time: '9AM',
-            link: '#',
-        },
-        {
-            title: 'Lift Off',
-            venue: 'MG Ground',
-            time: '10AM',
-            link: '#',
-        },
-        {
-            title: 'Eggstravaganza',
-            venue: 'Gymkhana',
-            time: '10AM',
-            link: '#',
-        },
-        {
-            title: 'Hoverpod',
-            venue: 'Vikramshila Arena',
-            time: '11AM',
-            link: '#',
-        },
-        {
-            title: 'Pitch The Cosmos',
-            venue: 'KCSTC',
-            time: '1PM',
-            link: '#',
-        },
-        {
-            title: 'IUCAA Workshop',
-            venue: 'Vikramshila V4',
-            time: '1PM',
-            link: '#',
-        },
-        {
-            title: 'Space Quiz Prelims',
-            venue: 'Maitrayee Auditorium',
-            time: '2PM',
-            link: '#',
-        },
-        {
-            title: 'Cosmonath',
-            venue: 'Maitrayee Auditorium',
-            time: '4PM',
-            link: '#',
-        },
-        {
-            title: 'Guest Lecture',
-            venue: 'Vikramshila V4',
-            time: '4PM',
-            link: '#',
-        },
-        {
-            title: 'Talk Show',
-            venue: 'Vikramshila V3',
-            time: '7PM',
-            link: '#',
-        },
-    ],    
-    
-    day2: [
-        {
-            title: 'Paper Presentation',
-            venue: 'KCSTC',
-            time: '9AM',
-            link: '#',
-        },
-        {
-            title: 'Astrobyte',
-            venue: 'Maitrayee Auditorium',
-            time: '9AM',
-            link: '#',
-        },
-        {
-            title: 'Ashish Mahabal',
-            venue: 'Bhatnagar Auditorium',
-            time: '9:30AM',
-            link: '#',
-        },
-        {
-            title: 'Lift Off',
-            venue: 'MG Ground',
-            time: '10AM',
-            link: '#',
-        },
-        {
-            title: 'Maze Runner',
-            venue: 'Vikramshila Arena',
-            time: '11AM',
-            link: '#',
-        },
-        {
-            title: 'Debdatta Mishra',
-            venue: 'Vikramshila V4',
-            time: '11:30AM',
-            link: '#',
-        },
-        {
-            title: 'Data Analytics',
-            venue: 'Maitrayee Auditorium',
-            time: '11:30AM',
-            link: '#',
-        },
-        {
-            title: 'Space Quiz',
-            venue: 'Bhatnagar Auditorium',
-            time: '12PM',
-            link: '#',
-        },
-        {
-            title: 'Dr. P SreeKumar',
-            venue: 'Vikramshila V4',
-            time: '3PM',
-            link: '#',
-        },
-        {
-            title: 'Closing Ceremony',
-            venue: 'Vikramshila V2',
-            time: '7PM',
-            link: '#',
-        },
-    ],
-    
-};
+import tel from './data/images/telescope.png';
+import lens from './data/images/lens.png';
+import './schedule.css';
+import { coordinates, scheduleData } from './scheduledata';
 
 const Schedule = () => {
-    const [activeDay, setActiveDay] = useState('day0');
+    const [activeDay, setActiveDay] = useState('day1');
+    const [zoomedStar, setZoomedStar] = useState(null);
+    const [zoomOrigin, setZoomOrigin] = useState({ x: 0, y: 0 });
+
+    const handleStarClick = (event, index, x, y) => {
+        const svg = document.querySelector('.constellation');
+        const rect = svg.getBoundingClientRect();
+        const screenX = rect.left + x * (rect.width / 1200);
+        const screenY = rect.top + y * (rect.height / 700);
+
+        setZoomOrigin({ x: screenX, y: screenY });
+        setZoomedStar(event);
+    };
 
     return (
         <div className="schedule-container">
+            <img src={tel} alt="Telescope" className="telescope-img" />
+            <svg className="constellation" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet">
+                {scheduleData[activeDay].map((event, index) => {
+                    const { x, y } = coordinates[activeDay][index];
+                    return (
+                        <g key={index}>
+                            <circle
+                                cx={x}
+                                cy={y}
+                                r={8 + (index % 5)}
+                                className="star"
+                                style={{ animationDuration: `${1.5 + (index % 4)}s` }}
+                                onClick={() => handleStarClick(event, index, x, y)}
+                            />
+                            <text x={x + 15} y={y - 10} className="star-label">{event.title}</text>
+                            {index > 0 && (
+                                <line
+                                    x1={coordinates[activeDay][index - 1].x}
+                                    y1={coordinates[activeDay][index - 1].y}
+                                    x2={x}
+                                    y2={y}
+                                    className="const-line"
+                                />
+                            )}
+                        </g>
+                    );
+                })}
+            </svg>
+
+            {zoomedStar && (
+                <div
+                    className="telescope-zoom-overlay"
+                    style={{
+                        '--origin-x': `${zoomOrigin.x}px`,
+                        '--origin-y': `${zoomOrigin.y}px`,
+                    }}
+                    onClick={() => setZoomedStar(null)}
+                >
+                    <div className="lens-image-wrapper">
+                        <img src={lens} alt="Lens" className="lens-image" />
+                            <div className="scope">
+                                <div className="scope-star-content">
+                                    <h2>{zoomedStar.title}</h2>
+                                    <p>{zoomedStar.venue}</p>
+                                    <p>{zoomedStar.time}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            )}
+
             <div className="day-buttons">
-                {['day0', 'day1', 'day2'].map(day => (
-                    <button
-                        key={day}
-                        className={activeDay === day ? 'active' : ''}
-                        onClick={() => setActiveDay(day)}
-                    >
+                {Object.keys(scheduleData).map((day) => (
+                    <button key={day} onClick={() => setActiveDay(day)} className={day === activeDay ? 'active' : ''}>
                         {day.toUpperCase()}
                     </button>
                 ))}
-            </div>
-
-            <div className="timeline">
-                {scheduleData[activeDay].map((event, idx) => (
-                    <div className={`timeline-item ${idx % 2 === 0 ? 'right' : 'left'}`} key={idx}>
-                        <div className="timeline-content">
-                            <h3>{event.title}</h3>
-                            <p><i className="fas fa-location-dot"></i> {event.venue}</p>
-                            <p><i className="fas fa-clock"></i> {event.time}</p>
-                            <a href={event.link} className="btn">Know More</a>
-                        </div>
-                    </div>
-                ))}
-
             </div>
         </div>
     );
