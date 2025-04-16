@@ -827,7 +827,7 @@ a:hover~.custom-cursor {
   transition: all 0.3s ease;
 }
 
-.profile-img {
+/* .profile-img {
   position: absolute;
   top: 25px;
   left: 50%;
@@ -838,13 +838,13 @@ a:hover~.custom-cursor {
   width: 96px;
   height: 96px;
   background-color: white;
-}
+} */
 
-.profile-img img {
+/* .profile-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
+} */
 
 .team-info {
   padding-top: 80px;

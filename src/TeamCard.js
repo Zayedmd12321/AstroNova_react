@@ -1,24 +1,42 @@
-const TeamCard = ({ name, title, image, socials, highlight }) => {
+import React from 'react';
+import './TeamCard.css';
+
+const TeamCard = ({ name, title, image, socials }) => {
+  const getIconClass = (url) => {
+    if (url.includes('facebook')) return 'fab fa-facebook';
+    if (url.includes('mailto')) return 'fas fa-envelope';
+    if (url.includes('linkedin')) return 'fab fa-linkedin';
+    return 'fas fa-user';
+  };
+
   return (
-    <div className={`team-card`}>
-      <div className="curve-top" />
-      <div className="profile-img">
-        <img src={`https://${image}`} alt={name} />
+    <div className="hologram-card-box">
+      <div className="hologram-card">
+
+        <div className="card-content">
+          <img
+            src={`https://${image}`}
+            alt={name}
+            className="profile-img"
+          />
+          <h3 className="name">{name}</h3>
+          <p className="title">{title}</p>
+          <div className="social-icons">
+            {socials.map((url, index) => (
+              <a href={url} target="_blank" rel="noopener noreferrer" key={index}>
+                <i className={getIconClass(url)}></i>
+              </a>
+            ))}
+          </div>
+          <div className="holo-beam"></div>
+          <div className="particles"></div>
+        </div>
       </div>
-      <div className="team-info">
-        <h3>{name}</h3>
-        <p>{title}</p>
-      </div>
-      <div className="card-bottom">
-        <a href={socials[0]} target="_blank" rel="noreferrer">
-          <i className="fab fa-facebook-f"></i>
-        </a>
-        <a href={socials[1]}>
-          <i className="fas fa-envelope"></i>
-        </a>
-        <a href={socials[2]} target="_blank" rel="noreferrer">
-          <i className="fab fa-linkedin-in"></i>
-        </a>
+
+      <div className="projector-stack">
+        <div className="ring ring1"></div>
+        <div className="ring ring2"></div>
+        <div className="ring ring3"></div>
       </div>
     </div>
   );
