@@ -1,14 +1,17 @@
 {
   "files": {
-    "main.css": "/AstroNova/static/css/main.e6bcc6c2.css",
-    "main.js": "/AstroNova/static/js/main.6cf627c5.js",
+    "main.css": "/AstroNova/static/css/main.a9da326c.css",
+    "main.js": "/AstroNova/static/js/main.1286b140.js",
+    "static/media/lens.png": "/AstroNova/static/media/lens.85ec93a9d8fdd777b1f3.png",
+    "static/media/telescope.png": "/AstroNova/static/media/telescope.f36cfaefee5682b2e8aa.png",
     "static/media/logo.png": "/AstroNova/static/media/logo.ef29437a9c6c51f35165.png",
+    "static/media/planet.png": "/AstroNova/static/media/planet.3e54e2b949e8c4ed77b4.png",
     "index.html": "/AstroNova/index.html",
-    "main.e6bcc6c2.css.map": "/AstroNova/static/css/main.e6bcc6c2.css.map",
-    "main.6cf627c5.js.map": "/AstroNova/static/js/main.6cf627c5.js.map"
+    "main.a9da326c.css.map": "/AstroNova/static/css/main.a9da326c.css.map",
+    "main.1286b140.js.map": "/AstroNova/static/js/main.1286b140.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6bcc6c2.css",
-    "static/js/main.6cf627c5.js"
+    "static/css/main.a9da326c.css",
+    "static/js/main.1286b140.js"
   ]
 }
