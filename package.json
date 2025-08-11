@@ -1,7 +1,7 @@
 {
   "name": "astronova",
   "version": "0.1.0",
-  "homepage": "https://zayedmd12321.github.io/AstroNova",
+  "homepage": "https://zayedmd12321.github.io/AstroNova_react",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
