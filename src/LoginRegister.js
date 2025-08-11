@@ -24,7 +24,7 @@ const LoginRegister = ({mode, setLogin}) => {
         setMessage('');
         setFormData({ name: '', email: '', password: '' });
     
-        history.push(newIsLogin ? '/AstroNova/account/login' : '/AstroNova/account/register');
+        history.push(newIsLogin ? '/AstroNova_react/account/login' : '/AstroNova_react/account/register');
     };
     
 
@@ -47,7 +47,7 @@ const LoginRegister = ({mode, setLogin}) => {
                 localStorage.setItem('username', formData.email.split('@')[0]);
                 localStorage.setItem('email', formData.email);
                 localStorage.setItem('name', formData.email.split('@')[0]);
-                history.push("/AstroNova/account");
+                history.push("/AstroNova_react/account");
             } else {
                 setMessage('Invalid credentials. Please try again.');
             }

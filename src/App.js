@@ -53,25 +53,25 @@ function App() {
         <Navbar avatar={avatar} login={login} setLogin={setLogin} />
         <Starwarp />
         <Switch>
-          <Route exact path="/AstroNova">
+          <Route exact path="/AstroNova_react">
             <Home />
           </Route>
-          <Route exact path="/AstroNova/account/login">
+          <Route exact path="/AstroNova_react/account/login">
             <LoginRegister mode={"login"} setLogin={setLogin}/>
           </Route>
-          <Route exact path="/AstroNova/account/register">
+          <Route exact path="/AstroNova_react/account/register">
             <LoginRegister mode={"register"} setLogin={setLogin}/>
           </Route>
-          <Route exact path="/AstroNova/account">
+          <Route exact path="/AstroNova_react/account">
             <MyProfile />
           </Route>
-          <Route exact path="/AstroNova/account/edit">
+          <Route exact path="/AstroNova_react/account/edit">
             <EditProfile setAvatar={ setAvatar }/>
           </Route>
-          <Route exact path="/AstroNova/schedule">
+          <Route exact path="/AstroNova_react/schedule">
             <Schedule/>
           </Route>
-          <Route exact path="/AstroNova/teams">
+          <Route exact path="/AstroNova_react/teams">
             <Teams/>
           </Route>
         </Switch>

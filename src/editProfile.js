@@ -22,7 +22,7 @@ const EditProfile = ( {setAvatar} ) => {
     localStorage.setItem('email', email);
     localStorage.setItem('username', username);
     localStorage.setItem('phoneNo', phoneNo);
-    history.push('/AstroNova/account');
+    history.push('/AstroNova_react/account');
   };
 
   return (

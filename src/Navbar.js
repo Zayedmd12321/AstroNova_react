@@ -31,7 +31,7 @@ const Navbar = ({ avatar, login, setLogin }) => {
 
         setLogin(false);
         setOpen(false);
-        history.push('/AstroNova');
+        history.push('/AstroNova_react');
     };
 
     useEffect(() => {
@@ -58,20 +58,20 @@ const Navbar = ({ avatar, login, setLogin }) => {
             <nav id="navbar">
                 <div id="logo" className="fade-in">
                     <img src={logo} alt="logo" />
-                    <Link to="/AstroNova"><span className="name">AstroNova</span></Link>
+                    <Link to="/AstroNova_react"><span className="name">AstroNova</span></Link>
                 </div>
 
                 {w > 770 && (
                     <div id="link">
                         <ul className="nav">
-                            <li className={`item fade-in ${location.pathname === '/AstroNova' ? 'active-link' : ''}`}>
-                                <Link to="/AstroNova">Home</Link>
+                            <li className={`item fade-in ${location.pathname === '/AstroNova_react' ? 'active-link' : ''}`}>
+                                <Link to="/AstroNova_react">Home</Link>
                             </li>
-                            <li className={`item fade-in ${location.pathname === '/AstroNova/schedule' ? 'active-link' : ''}`}>
-                                <Link to="/AstroNova/schedule">Schedule</Link>
+                            <li className={`item fade-in ${location.pathname === '/AstroNova_react/schedule' ? 'active-link' : ''}`}>
+                                <Link to="/AstroNova_react/schedule">Schedule</Link>
                             </li>
-                            <li className={`item fade-in ${location.pathname === '/AstroNova/teams' ? 'active-link' : ''}`}>
-                                <Link to="/AstroNova/teams">Teams</Link>
+                            <li className={`item fade-in ${location.pathname === '/AstroNova_react/teams' ? 'active-link' : ''}`}>
+                                <Link to="/AstroNova_react/teams">Teams</Link>
                             </li>
                         </ul>
                     </div>
@@ -88,24 +88,24 @@ const Navbar = ({ avatar, login, setLogin }) => {
 
                     {open && w<771 && (
                         <div id="dropdown-menu" className="dropdown-menu">
-                            <Link to="/Astronova" onClick={() => setOpen(false)}>Home</Link>
-                            <Link to="/Astronova/schedule" onClick={() => setOpen(false)}>Schedule</Link>
-                            <Link to="/Astronova/teams" onClick={() => setOpen(false)}>Teams</Link>
-                            <Link to={"/AstroNova/account" + (!login ? "/login" : "")} onClick={() => setOpen(false)}>My Profile</Link>
+                            <Link to="/Astronova_react" onClick={() => setOpen(false)}>Home</Link>
+                            <Link to="/Astronova_react/schedule" onClick={() => setOpen(false)}>Schedule</Link>
+                            <Link to="/Astronova_react/teams" onClick={() => setOpen(false)}>Teams</Link>
+                            <Link to={"/AstroNova_react/account" + (!login ? "/login" : "")} onClick={() => setOpen(false)}>My Profile</Link>
                             {!login ? (
-                                <Link to="/AstroNova/account/login" onClick={() => setOpen(false)}>Log In</Link>
+                                <Link to="/AstroNova_react/account/login" onClick={() => setOpen(false)}>Log In</Link>
                             ) : (
-                                <Link to="/AstroNova" className="logout-btn" onClick={handleLogout}>Log Out</Link>
+                                <Link to="/AstroNova_react" className="logout-btn" onClick={handleLogout}>Log Out</Link>
                             )}
                         </div>
                     )}
                     {open && w>770 && (
                         <div id="dropdown-menu" className="dropdown-menu">
-                            <Link to={"/AstroNova/account" + (!login ? "/login" : "")} onClick={() => setOpen(false)}>My Profile</Link>
+                            <Link to={"/AstroNova_react/account" + (!login ? "/login" : "")} onClick={() => setOpen(false)}>My Profile</Link>
                             {!login ? (
-                                <Link to="/AstroNova/account/login" onClick={() => setOpen(false)}>Log In</Link>
+                                <Link to="/AstroNova_react/account/login" onClick={() => setOpen(false)}>Log In</Link>
                             ) : (
-                                <Link to="/AstroNova" className="logout-btn" onClick={handleLogout}>Log Out</Link>
+                                <Link to="/AstroNova_react" className="logout-btn" onClick={handleLogout}>Log Out</Link>
                             )}
                         </div>
                     )}
